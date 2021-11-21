@@ -1,0 +1,23 @@
+<div class="card mx-auto mb-3" style="max-width: 1000px; min-height: 200px">
+  <div class="row g-0">
+    <div class="col-md-3">
+    <img src="<%= product.image_url %>" class="rounded-start img-thumbnail" style="max-width: 200px" alt="...">
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h4 class="card-title mb-3"><%= product.title %></h4>
+        <p class="card-text"><b>SKU: &ensp;</b><%= product.sku %></p>
+        <p class="card-text"><b>Price: &ensp;</b><%= number_to_currency(product.price, unit:"", precision: 0, delimiter:',') %> VND</p>
+        <p class="card-text"><b>Quantily: &ensp;</b><%= product.quantily %></p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card-body float-end">
+        <%= link_to "Edit", edit_product_path(product), class: "btn btn-success" %>
+        <%= link_to "Delete", product_path(product),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
