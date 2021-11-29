@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     if search_result && search_result.length > 0
       @products = search_result
     else
-      @products = Product.order(id: :asc).paginate(:page => params[:page], :per_page => 5)
+      @products = Product.order(id: :asc).paginate(:page => params[:page], :per_page => 3)
     end
   end
 

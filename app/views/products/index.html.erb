@@ -1,20 +1,25 @@
 
+<div id="product_list" class="container ">
+<h1 class="text">Products</h1>
+</div> 
 <div class ="container">
-    <% if @products.count == 0 %>
-        <p class="fs-4 ms-4 mt-4">Opp!!! Cannot find any products</p>
-        
-    <% elsif @products.count == 1 %>
-        <% @products.each do |product| %>
-            <%= render 'product', product: product %>
-        <% end %>
-    <% else %>
-        <% @products.each do |product| %>
-            <%= render 'product', product: product %>
-        <% end %>
-        
+<% if @products.count == 0 %>
+    <p class="fs-4 ms-4 mt-4">Opp!!! Cannot find any products</p>
+    
+<% elsif @products.count == 1 %>
+    <% @products.each do |product| %>
+        <%= render 'product', product: product %>
     <% end %>
+<% else %>
+    <% @products.each do |product| %>
+        <%= render 'product', product: product %>
+    <% end %>
+    <div class="apple_pagination">
+        <%= will_paginate @products, :container => false %>
+    </div> 
+<% end %>
 </div>
 <div class="container update">
-  <br />
-  <%= link_to 'New product', new_product_path, class:"btn btn-success" %>
+<br />
+<%= link_to 'New product', new_product_path, class:"btn btn-success" %>
 </div>
