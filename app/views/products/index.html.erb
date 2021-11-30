@@ -1,6 +1,7 @@
 
 <div id="product_list" class="container ">
 <h1 class="text">Products</h1>
+
 </div> 
 <div class ="container">
 <% if @products.count == 0 %>
@@ -18,8 +19,16 @@
         <%= will_paginate @products, :container => false %>
     </div> 
 <% end %>
+
+
+<% @categories.each do |category| %>
+    <%= link_to category.category, category_path(category) %>
+<%end%>
+        
 </div>
 <div class="container update">
 <br />
 <%= link_to 'New product', new_product_path, class:"btn btn-success" %>
 </div>
+
+

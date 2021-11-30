@@ -25,7 +25,10 @@
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
-
+<div class=1"field">
+<%= form.label :category %>
+          <%= form.select :category_id, Category.all.map{|c| [c.category, c.id]  } %>
+</div>
   <div class="field">
     <%= form.label :price %>
     <%= form.text_field :price %>
