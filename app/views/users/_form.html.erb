@@ -1,0 +1,53 @@
+<div class="d-flex justify-content-center mb-4">
+  <div class="card mt-5" style="width: 40rem;">
+    <div class="card-header text-center">
+      <h2><%= yield :card_title %></h2>
+    </div>
+    <div class="card-body px-4">
+      <%= form_with model: @user do |f| %>
+      <%=render 'shared/error_messages', obj: @user %>
+
+        <div class="form-group ">
+          <%= f.label :username , class: "col-2 col-form-lable"%>
+          <div class = "col -10">
+            <%= f.text_field :username, autofocus: true, class: "form-control p-2", placeholder: "Enter Username"%>
+          </div>
+        </div>
+
+        <div class="form-group" >
+          <%= f.label :birthday , class: "col-2 col-form-lable"%>
+          <div class = "col -10">
+            <%= f.date_field :birthday, autofocus: true, class: "form-control p-2", placeholder: "mm/dd/yyyy"%>
+          </div>
+        </div>
+
+        <div class="form-group" >
+          <%= f.label :phone , class: "col-2 col-form-lable"%>
+          <div class = "col -10">
+            <%= f.text_field :phone, autofocus: true, class: "form-control p-2", placeholder: "Enter your phone number"%>
+          </div>
+        </div>
+
+         <div class="form-group" >
+          <%= f.label :email , class: "col-2 col-form-lable"%>
+          <div class = "col -10">
+            <%= f.email_field :email, autofocus: true, class: "form-control p-2", placeholder: "Enter your email address"%>
+          </div>
+        </div>
+     
+        
+          <div class="form-group ">
+          <%= f.label :password , class: "col-2 col-form-lable"%>
+          <div class = "col -10">
+            <%= f.password_field :password, autofocus: true, class: "form-control p-2", placeholder: "choose a password"%>
+          </div>
+        </div>
+
+        <div class="actions mt-4 mb-2">
+          <%= f.submit "Create user", class: "btn btn-success w-100 p-2 shadow rounded" %>
+        </div>
+        <div class="text-center"><%= link_to "Cancel", products_path, class:"text-decoration-none text-success"%></div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@ class Product < ApplicationRecord
 belongs_to :category
 
   validates :sku, presence: true
-  validates :title, presence: true, length: {minimum:10, maximum:40}
+  validates :title, presence: true, length: {minimum:3, maximum:40}
   validates :price, presence: true
   validates :quantily, presence: true
 
